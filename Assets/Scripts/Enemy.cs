@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
         if(Vector3.Distance(target.position, transform.position) < 0.2f)
         {
             GetNextWaypoint();
+            return;
         }
 
     }
