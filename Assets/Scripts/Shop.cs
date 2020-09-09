@@ -6,6 +6,11 @@ public class Shop : MonoBehaviour
 {
     BuildManager buildManager;
 
+    public TurretBlueprint gunTower;
+    public TurretBlueprint mgunTower;
+    public TurretBlueprint laserTower;
+    public TurretBlueprint rocketTower;
+    public TurretBlueprint fireTower;
 
     private void Start()
     {
@@ -13,25 +18,25 @@ public class Shop : MonoBehaviour
     }
 
 
-    public void PurchaseBasiqueGun()
+    public void SelectBasiqueGun()
     {
-        buildManager.SetTurretToBuild(buildManager.basicTurretPrefab);
+        buildManager.SetTurretToBuild(gunTower);
     }
-    public void PurchaseMachineGun()
+    public void SelectMachineGun()
     {
-        buildManager.SetTurretToBuild(buildManager.machineGunPregab);
+        buildManager.SetTurretToBuild(mgunTower);
     }
-    public void PurchaseLaserGun()
+    public void SelectLaserGun()
     {
-        buildManager.SetTurretToBuild(buildManager.laserPrefab); 
+        buildManager.SetTurretToBuild(laserTower); 
     }
-    public void PurchaseRocket()
+    public void SelectRocket()
     {
-        buildManager.SetTurretToBuild(buildManager.rocketLauncherPrefab); 
+        buildManager.SetTurretToBuild(rocketTower); 
     }
-    public void PurchaseFireGun()
+    public void SelectFireGun()
     {
-        buildManager.SetTurretToBuild(buildManager.firePrefab);
+        buildManager.SetTurretToBuild(fireTower);
     }
 
 }

@@ -7,13 +7,18 @@ public class BuildManager : MonoBehaviour
 
     public static BuildManager instance;
 
-    private GameObject turretToBuild;
+    public TurretBlueprint turretToBuild;
 
     public GameObject basicTurretPrefab;
     public GameObject machineGunPregab;
     public GameObject rocketLauncherPrefab;
     public GameObject laserPrefab;
     public GameObject firePrefab;
+
+    public bool CanBuid
+    {
+        get { return turretToBuild != null; }
+    }
 
     // Start is called before the first frame update
     void Awake()
@@ -22,26 +27,26 @@ public class BuildManager : MonoBehaviour
     }
 
 
-    private void Start()
-    {
-     
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
-    public GameObject GetTurretToBuild()
-    {
-        return turretToBuild;
-    }
-
-    public void SetTurretToBuild(GameObject turret)
+    public void SetTurretToBuild(TurretBlueprint turret)
     {
         turretToBuild = turret;
+    }
+
+    public void BuildTurretOn(Nodes node)
+    {
+        if(PlayerStats.money < turretToBuild.cost)
+        {
+            return;
+        }
+        else
+        {
+            PlayerStats.money -= turretToBuild.cost;
+        }
+              
+        {
+            GameObject turret = Instantiate(turretToBuild.prfabTurret, node.GetBuildPosition(), Quaternion.identity);
+            node.turret = turret;
+        }
     }
 
 

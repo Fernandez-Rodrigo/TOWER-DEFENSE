@@ -8,7 +8,9 @@ public class Nodes : MonoBehaviour
 
     private Color startColor;
 
-    private GameObject turret;
+    public GameObject turret;
+
+    public Vector3 positionOffset;
 
     BuildManager buildManager;
     // Start is called before the first frame update
@@ -27,15 +29,18 @@ public class Nodes : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if (buildManager.GetTurretToBuild() == null)
+       
+        if (!buildManager.CanBuid)
             return;
+
         GetComponent<Renderer>().material.color = nodeColor;
     }
 
     private void OnMouseExit()
     {
-        if (buildManager.GetTurretToBuild() == null)
-            return;
+      
+
+        
         GetComponent<Renderer>().material.color = startColor;
     }
 
@@ -43,28 +48,30 @@ public class Nodes : MonoBehaviour
     {
         Vector3 firePosition = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
 
-        if (buildManager.GetTurretToBuild() == null)
+        if (!buildManager.CanBuid)
             return;
 
-        if(turret != null)
+        if (turret != null)
         {
             return;
         }
-        {
-            GameObject turretToBuid = buildManager.GetTurretToBuild();
-            if (turretToBuid == buildManager.firePrefab)
-            {
-                turret = Instantiate(turretToBuid, firePosition, transform.rotation);
-            }
-            else
-            {
-                turret = Instantiate(turretToBuid, transform.position, transform.rotation);
-            }
-        }
-        
-        
+
+
+        buildManager.BuildTurretOn(this);
         
 
+    }
+
+
+
+    public Vector3 GetBuildPosition()
+    { positionOffset = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
+        if (buildManager.turretToBuild.prfabTurret == buildManager.firePrefab)
+        {
+            return positionOffset;
+        }
+        else
+        { return transform.position; }
     }
 
 }
