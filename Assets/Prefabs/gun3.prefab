@@ -65,11 +65,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb17aca2421a9d84bbb34c99611f8a7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  partToRotate: {fileID: 434691628118138972}
+  partToRotate: {fileID: 4636799152970755192}
   bulletPrefab: {fileID: 3203494451477727199, guid: 386564fd5cfedf64a9758bcb4911e5dc, type: 3}
   firePoint: {fileID: 9155631261367484679}
   range: 15
-  fireRate: 3
+  fireRate: 1
 --- !u!1 &434691628118506620
 GameObject:
   m_ObjectHideFlags: 0

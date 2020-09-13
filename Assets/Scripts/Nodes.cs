@@ -6,6 +6,8 @@ public class Nodes : MonoBehaviour
 {
     public Color nodeColor;
 
+    public Color noMoneyColor;
+
     private Color startColor;
 
     public GameObject turret;
@@ -33,7 +35,16 @@ public class Nodes : MonoBehaviour
         if (!buildManager.CanBuid)
             return;
 
-        GetComponent<Renderer>().material.color = nodeColor;
+
+        if (buildManager.HasMoney == true)
+        {
+
+            GetComponent<Renderer>().material.color = nodeColor;
+        }
+        else
+        {
+            GetComponent<Renderer>().material.color = noMoneyColor;
+        }
     }
 
     private void OnMouseExit()

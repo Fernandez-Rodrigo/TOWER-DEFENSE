@@ -8,6 +8,7 @@ public class BuildManager : MonoBehaviour
     public static BuildManager instance;
 
     public TurretBlueprint turretToBuild;
+    public GameObject buildEffect;
 
     public GameObject basicTurretPrefab;
     public GameObject machineGunPregab;
@@ -20,6 +21,10 @@ public class BuildManager : MonoBehaviour
         get { return turretToBuild != null; }
     }
 
+    public bool HasMoney
+    {
+        get { return PlayerStats.money >= turretToBuild.cost; }
+    }
     // Start is called before the first frame update
     void Awake()
     {
@@ -46,6 +51,9 @@ public class BuildManager : MonoBehaviour
         {
             GameObject turret = Instantiate(turretToBuild.prfabTurret, node.GetBuildPosition(), Quaternion.identity);
             node.turret = turret;
+
+           GameObject effect =  Instantiate(turretToBuild.effectBuild, node.GetBuildPosition(), Quaternion.identity);
+            Destroy(effect, 4.5f);
         }
     }
 

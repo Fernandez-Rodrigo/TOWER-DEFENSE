@@ -6,9 +6,11 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float speed = 5f;
-
+    public int health = 1000;
     private Transform target;
     private int wayPointOrder = 0;
+    public int dropMoney = 20;
+    public GameObject deathEffect;
 
 
     // Start is called before the first frame update
@@ -36,7 +38,8 @@ public class Enemy : MonoBehaviour
     {
         if(wayPointOrder >= WayPoints.wayPoints.Length - 1)
         {
-            Destroy(gameObject);
+
+            LoseLives();
             return;
         }
 
@@ -44,4 +47,32 @@ public class Enemy : MonoBehaviour
         wayPointOrder++;
         target = WayPoints.wayPoints[wayPointOrder];
     }
+
+
+    void LoseLives()
+    {
+        PlayerStats.Lives--;
+        Destroy(gameObject);
+    }
+
+
+    public void TakeDamage(int ammount)
+    {
+        health -= ammount;
+
+        if(health <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        PlayerStats.money += dropMoney;
+        Destroy(gameObject);
+
+        GameObject effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
+        Destroy(effect, 4f);
+    }
+
 }
