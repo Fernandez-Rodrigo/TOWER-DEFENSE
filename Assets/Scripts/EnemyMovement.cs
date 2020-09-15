@@ -6,6 +6,8 @@ public class EnemyMovement : MonoBehaviour
 {
     private Transform target;
     private int wayPointOrder = 0;
+    public bool isRunning = true;
+    public Animator animatorMob;
 
     private Enemy enemy;
     // Start is called before the first frame update
@@ -13,6 +15,8 @@ public class EnemyMovement : MonoBehaviour
     {
         enemy = GetComponent<Enemy>();
         target = WayPoints.wayPoints[0];
+        animatorMob = GetComponent<Animator>();
+        isRunning = true;
     }
 
     // Update is called once per frame
@@ -24,11 +28,13 @@ public class EnemyMovement : MonoBehaviour
         if (Vector3.Distance(target.position, transform.position) < 0.2f)
         {
             GetNextWaypoint();
+            transform.LookAt(target);
             return;
         }
 
         enemy.speed = enemy.startSpeed;
 
+        animatorMob.SetBool("isRunning",isRunning);
     }
 
 
@@ -51,4 +57,9 @@ public class EnemyMovement : MonoBehaviour
         PlayerStats.Lives--;
         Destroy(gameObject);
     }
+
+  
+
+    
+
 }

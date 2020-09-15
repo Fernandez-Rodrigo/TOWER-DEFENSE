@@ -2939,13 +2939,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 452886052}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 31, y: 2.5, z: 50}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &464543901
 GameObject:
   m_ObjectHideFlags: 0
@@ -9319,6 +9319,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 773993533527777377, guid: dd21f3a08f614ce4790590304709de25, type: 3}
+  enemyPrefab2: {fileID: 6076797207216365389, guid: d3bcadf0b670d3749a442034a3fc0655, type: 3}
+  enemyPrefab3: {fileID: 3179853682575848134, guid: 611ba12b987857049935892c7a071456, type: 3}
   timeBewteenWave: 5
   countDownText: {fileID: 0}
   spawnPoint: {fileID: 452886056}
