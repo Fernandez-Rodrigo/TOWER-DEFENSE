@@ -8,7 +8,7 @@ public class WaveSpawner : MonoBehaviour
 
     public Transform enemyPrefab;
 
-    public float timeBewteenWave = 5f;
+    public float timeBewteenWave = 10f;
 
     private float countdown = 2f;
 
@@ -47,6 +47,7 @@ public class WaveSpawner : MonoBehaviour
         }
 
         waveNumber++;
+        PlayerStats.rounds++;
     }
 
 

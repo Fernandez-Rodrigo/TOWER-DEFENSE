@@ -1,0 +1,54 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+[RequireComponent(typeof(Enemy))]
+public class EnemyMovement : MonoBehaviour
+{
+    private Transform target;
+    private int wayPointOrder = 0;
+
+    private Enemy enemy;
+    // Start is called before the first frame update
+    void Start()
+    {
+        enemy = GetComponent<Enemy>();
+        target = WayPoints.wayPoints[0];
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        Vector3 direction = target.position - transform.position;
+        transform.Translate(direction.normalized * enemy.speed * Time.deltaTime, Space.World);
+
+        if (Vector3.Distance(target.position, transform.position) < 0.2f)
+        {
+            GetNextWaypoint();
+            return;
+        }
+
+        enemy.speed = enemy.startSpeed;
+
+    }
+
+
+    void GetNextWaypoint()
+    {
+        if (wayPointOrder >= WayPoints.wayPoints.Length - 1)
+        {
+
+            LoseLives();
+            return;
+        }
+
+
+        wayPointOrder++;
+        target = WayPoints.wayPoints[wayPointOrder];
+    }
+
+    void LoseLives()
+    {
+        PlayerStats.Lives--;
+        Destroy(gameObject);
+    }
+}
