@@ -8,7 +8,9 @@ public class BuildManager : MonoBehaviour
     public static BuildManager instance;
 
     public TurretBlueprint turretToBuild;
+    private Nodes selectedNode;
     public GameObject buildEffect;
+    public NodeUI nodeUI;
 
     public GameObject basicTurretPrefab;
     public GameObject machineGunPregab;
@@ -35,27 +37,48 @@ public class BuildManager : MonoBehaviour
     public void SetTurretToBuild(TurretBlueprint turret)
     {
         turretToBuild = turret;
+        selectedNode = null;
+
+        nodeUI.Hide();
     }
 
     public void BuildTurretOn(Nodes node)
     {
-        if(PlayerStats.money < turretToBuild.cost)
+        if (turretToBuild == null)
         {
             return;
         }
         else
         {
-            PlayerStats.money -= turretToBuild.cost;
+
+            if (PlayerStats.money < turretToBuild.cost)
+            {
+                return;
+            }
+            else
+            {
+                PlayerStats.money -= turretToBuild.cost;
+
+                GameObject turret = Instantiate(turretToBuild.prfabTurret, node.GetBuildPosition(), Quaternion.identity);
+                node.turret = turret;
+
+                GameObject effect = Instantiate(turretToBuild.effectBuild, node.GetBuildPosition(), Quaternion.identity);
+                Destroy(effect, 4.5f);
+            }
         }
               
         {
-            GameObject turret = Instantiate(turretToBuild.prfabTurret, node.GetBuildPosition(), Quaternion.identity);
-            node.turret = turret;
-
-           GameObject effect =  Instantiate(turretToBuild.effectBuild, node.GetBuildPosition(), Quaternion.identity);
-            Destroy(effect, 4.5f);
+          
         }
     }
 
+
+    public void SelectedNode(Nodes node)
+    {
+        selectedNode = node;
+        turretToBuild = null;
+
+        nodeUI.SetTarget(node);
+    }
 
 }
