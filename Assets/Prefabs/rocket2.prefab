@@ -215,8 +215,14 @@ MonoBehaviour:
   partToRotate: {fileID: 616034101881042452}
   bulletPrefab: {fileID: 4078063454502914770, guid: 92b2a000d98e8654cad97874d5aa11c4, type: 3}
   firePoint: {fileID: 8773409123115969702}
-  range: 15
-  fireRate: 0.5
+  useLaser: 0
+  lineRender: {fileID: 0}
+  impactLasserEffect: {fileID: 0}
+  lightLasser: {fileID: 0}
+  damageOverTime: 10
+  slowValue: 0.7
+  range: 19
+  fireRate: 0.8
 --- !u!1 &8086452166997876489
 GameObject:
   m_ObjectHideFlags: 0

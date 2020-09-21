@@ -42,43 +42,17 @@ public class BuildManager : MonoBehaviour
         nodeUI.Hide();
     }
 
-    public void BuildTurretOn(Nodes node)
-    {
-        if (turretToBuild == null)
-        {
-            return;
-        }
-        else
-        {
-
-            if (PlayerStats.money < turretToBuild.cost)
-            {
-                return;
-            }
-            else
-            {
-                PlayerStats.money -= turretToBuild.cost;
-
-                GameObject turret = Instantiate(turretToBuild.prfabTurret, node.GetBuildPosition(), Quaternion.identity);
-                node.turret = turret;
-
-                GameObject effect = Instantiate(turretToBuild.effectBuild, node.GetBuildPosition(), Quaternion.identity);
-                Destroy(effect, 4.5f);
-            }
-        }
-              
-        {
-          
-        }
-    }
-
-
     public void SelectedNode(Nodes node)
     {
         selectedNode = node;
         turretToBuild = null;
 
         nodeUI.SetTarget(node);
+    }
+
+    public TurretBlueprint GetTurretToBuild()
+    {
+        return turretToBuild;
     }
 
 }
