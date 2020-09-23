@@ -12,6 +12,8 @@ public class TurretBlueprint
 
     public GameObject effectBuild;
 
+    public GameObject sellEffect;
+
     public int damage;
 
     public GameObject upgradedPrefab;
@@ -22,7 +24,7 @@ public class TurretBlueprint
 
     public int sellValue;
 
-    public bool canUpgrade2;
+    public int maxLVL;
 
     // Start is called before the first frame update
     void Start()

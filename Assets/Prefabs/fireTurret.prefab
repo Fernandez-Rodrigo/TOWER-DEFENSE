@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 1960841910308686058}
   - component: {fileID: 6328714292263651162}
   m_Layer: 0
-  m_Name: Turet01
+  m_Name: fireTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,9 +77,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb17aca2421a9d84bbb34c99611f8a7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxLVL: 1
   partToRotate: {fileID: 5275079115814194898}
   bulletPrefab: {fileID: 3203494451477727199, guid: 386564fd5cfedf64a9758bcb4911e5dc, type: 3}
   firePoint: {fileID: 4149212245641753485}
+  useLaser: 0
+  lineRender: {fileID: 0}
+  impactLasserEffect: {fileID: 0}
+  lightLasser: {fileID: 0}
+  damageOverTime: 10
+  slowValue: 0.7
   range: 15
   fireRate: 1
 --- !u!1 &4751848712905350277

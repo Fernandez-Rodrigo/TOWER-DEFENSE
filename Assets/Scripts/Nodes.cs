@@ -16,7 +16,11 @@ public class Nodes : MonoBehaviour
 
     public bool isUpgraded = false;
 
+    public bool isUpgraded2 = false;
+
     public TurretBlueprint turretBlueprint;
+
+    public Turret turretLVL;
 
     BuildManager buildManager;
     // Start is called before the first frame update
@@ -155,7 +159,7 @@ public class Nodes : MonoBehaviour
         if (PlayerStats.money < turretBlueprint.upgradeCost)
         {
             return;
-        } else if (isUpgraded == true && PlayerStats.money >= turretBlueprint.upgradeCost && turretBlueprint.canUpgrade2 == true)
+        } else if (isUpgraded == true && PlayerStats.money >= turretBlueprint.upgradeCost && turretBlueprint.maxLVL == 3 && isUpgraded2 == false)
         {
             PlayerStats.money -= turretBlueprint.upgradeCost;
 
@@ -167,13 +171,25 @@ public class Nodes : MonoBehaviour
             turret = _turret;
 
             isUpgraded = true;
+            isUpgraded2 = true;
 
-            this.turretBlueprint.canUpgrade2 = false;
 
             GameObject effect = Instantiate(turretBlueprint.effectBuild, transform.position, Quaternion.identity);
             Destroy(effect, 4.5f);
         }
         
+    }
+
+    public void SellTurret()
+    {
+        PlayerStats.money += turretBlueprint.sellValue;
+        
+        
+
+        GameObject effect = Instantiate(turretBlueprint.sellEffect, transform.position, Quaternion.identity);
+        Destroy(effect, 4.5f);
+        Destroy(turret);
+        turretBlueprint = null;
     }
 
 }

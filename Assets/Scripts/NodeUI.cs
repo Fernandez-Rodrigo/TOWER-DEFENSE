@@ -17,6 +17,8 @@ public class NodeUI : MonoBehaviour
 
     public TurretBlueprint turretBlueprint;
 
+    public Turret turretScript;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +43,7 @@ public class NodeUI : MonoBehaviour
 
         ui.SetActive(true);
 
-        if (target.isUpgraded == false || turretBlueprint.canUpgrade2 == true)
+        if (target.turretBlueprint.maxLVL == 2 && target.isUpgraded == false || target.turretBlueprint.maxLVL == 3 && target.isUpgraded2 == false && target.isUpgraded == true ||target.turretBlueprint.maxLVL == 3 && target.isUpgraded == false)
         {
             upgradeText.text = "UPGRADE   $: " + target.turretBlueprint.upgradeCost.ToString();
             upgradeButton.interactable = true;
@@ -64,6 +66,13 @@ public class NodeUI : MonoBehaviour
     public void Upgrade()
     {
         target.UpgradeTurret();
+        Hide();
      
+    }
+
+    public void SellTurret()
+    {
+        target.SellTurret();
+        Hide();
     }
 }

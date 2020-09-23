@@ -6,8 +6,11 @@ public class GameManager : MonoBehaviour
 {
     public static bool GameisOver = false;
 
+    public bool isPaused = false;
 
     public GameObject gameOverCanvas;
+
+    public GameObject pauseCanvas;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +31,9 @@ public class GameManager : MonoBehaviour
         {
             EndGame();
         }
+
+
+        PauseGame();
     }
 
 
@@ -36,5 +42,28 @@ public class GameManager : MonoBehaviour
         GameisOver = true;
         gameOverCanvas.SetActive(true);
         
+    }
+
+    public void PauseGame()
+    {
+        if (GameisOver == true)
+        {
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.P) && isPaused == false)
+        {
+            pauseCanvas.SetActive(true);
+            isPaused = true;
+            Time.timeScale = 0;
+            
+            
+        }
+        else if(Input.GetKeyDown(KeyCode.P) & isPaused == true)
+        {
+            Time.timeScale = 1;
+            isPaused = false;
+            pauseCanvas.SetActive(false);
+        }
     }
 }

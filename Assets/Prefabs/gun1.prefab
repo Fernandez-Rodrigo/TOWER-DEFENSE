@@ -211,6 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb17aca2421a9d84bbb34c99611f8a7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxLVL: 3
   partToRotate: {fileID: 3642235789861826170}
   bulletPrefab: {fileID: 7261619836605932928, guid: 4c8008c4c93f44342b9787d66973ff5a, type: 3}
   firePoint: {fileID: 5027453039364203232}
