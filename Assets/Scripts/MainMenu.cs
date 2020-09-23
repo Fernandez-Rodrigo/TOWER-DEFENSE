@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public string levelToLoad = "MainScene";
+
+    public SceneFader sceneFader;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +23,7 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene(0);
+        sceneFader.FadeTo(levelToLoad);
     }
 
     public void Quit()

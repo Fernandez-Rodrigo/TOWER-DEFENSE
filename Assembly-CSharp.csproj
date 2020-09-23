@@ -73,8 +73,11 @@
     <Compile Include="Assets\Techno Blue UI\Demo_Assets\scripts\GUI_Demo.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\GameOver.cs" />
-    <Compile Include="Assets\Scripts\TurretBlueprint.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\TurretBlueprint.cs" />
+    <Compile Include="Assets\Scripts\SceneFader.cs" />
+    <Compile Include="Assets\Scripts\Waves.cs" />
+    <Compile Include="Assets\Scripts\LevelSelector.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Misiles\Props\Small\CruiseMissile\ReadMe.txt" />

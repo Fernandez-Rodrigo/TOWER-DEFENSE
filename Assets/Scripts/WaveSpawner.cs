@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class WaveSpawner : MonoBehaviour
 {
+    public static int enemiesAlive = 0;
+
+    public Waves[] waves;
 
     public Transform enemyPrefab;
 
@@ -30,46 +33,54 @@ public class WaveSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(countdown <= 0)
+        if(enemiesAlive > 0)
         {
-            StartCoroutine(SpawnWave());
-            countdown = timeBewteenWave;
+            return;
         }
+        {
 
-        countdown -= Time.deltaTime;
+            if (countdown <= 0)
+            {
+                StartCoroutine(SpawnWave());
+                countdown = timeBewteenWave;
+            }
 
+            countdown -= Time.deltaTime;
 
+        }
     }
 
 
     IEnumerator SpawnWave()
     {
-        for (int i = 0; i < waveNumber; i++)
+
+        Waves wave = waves[waveNumber]; 
+
+        for (int i = 0; i < wave.countEnemy; i++)
         {
-            SpawnEnemy();
-            yield return new WaitForSeconds(0.5f);
+            SpawnEnemy(wave.enemyPrefab);
+            yield return new WaitForSeconds(1 / wave.rate);
         }
 
-        waveNumber++;
         PlayerStats.rounds++;
+        waveNumber++;
+
+        if(waveNumber == waves.Length)
+        {
+            Debug.Log("first lvl done");
+            this.enabled = false;
+        }
+
     }
 
 
-    void SpawnEnemy()
+    void SpawnEnemy(GameObject enemy)
     {
 
-        if (waveNumber <= 5)
-        {
-            Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
-        }
-        if(waveNumber > 5 && waveNumber <= 10)
-        {
-            Instantiate(enemyPrefab2, spawnPoint.position, spawnPoint.rotation);
-        }
-        if(waveNumber > 10 && waveNumber<= 20)
-        {
-            Instantiate(enemyPrefab3, spawnPoint.position, spawnPoint.rotation);
-        }
-    }
 
+        Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
+        enemiesAlive++;
+
+
+    }
 }

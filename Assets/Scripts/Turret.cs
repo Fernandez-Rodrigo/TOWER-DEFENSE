@@ -136,7 +136,7 @@ public class Turret : MonoBehaviour
 
         Vector3 MobToLasser = firePoint.position - target.position;
 
-        impactLasserEffect.transform.position = target.position + MobToLasser.normalized * 1f;
+        impactLasserEffect.transform.position = target.position + MobToLasser.normalized * 0.5f;
 
     }
 

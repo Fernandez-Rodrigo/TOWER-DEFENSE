@@ -190,6 +190,8 @@ public class Nodes : MonoBehaviour
         Destroy(effect, 4.5f);
         Destroy(turret);
         turretBlueprint = null;
+        isUpgraded = false;
+        isUpgraded2 = false;
     }
 
 }

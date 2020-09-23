@@ -8,6 +8,12 @@ public class GameOver : MonoBehaviour
 {
     public Text roundText;
 
+    public SceneFader sceneFader;
+
+    public string loadLevel = "MainScene";
+
+    public string loadMenu = "MainMenu";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,13 +33,14 @@ public class GameOver : MonoBehaviour
 
     public void Retry()
     {
-        SceneManager.LoadScene(0);
+        sceneFader.FadeTo(loadLevel);
         Time.timeScale = 1;
     }
 
     public void Menu()
     {
-
+        sceneFader.FadeTo(loadMenu);
+        Time.timeScale = 1;
     }
 
 
