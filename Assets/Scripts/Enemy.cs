@@ -8,8 +8,8 @@ public class Enemy : MonoBehaviour
     public float startSpeed = 5f;
     public float speed;
     public float health = 1000;
-    
-    
+
+    public bool isDead = false;
     public int dropMoney = 50;
     public GameObject deathEffect;
 
@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
     {
         health -= ammount;
 
-        if(health <= 0)
+        if(health <= 0 && isDead == false)
         {
             Die();
         }
@@ -47,6 +47,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        isDead = true;
         PlayerStats.money += dropMoney;
 
         WaveSpawner.enemiesAlive--;

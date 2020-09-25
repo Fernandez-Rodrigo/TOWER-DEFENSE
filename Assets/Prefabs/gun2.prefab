@@ -259,9 +259,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb17aca2421a9d84bbb34c99611f8a7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLVL: 3
   partToRotate: {fileID: 2952747767601187462}
-  bulletPrefab: {fileID: 7261619836605932928, guid: 4c8008c4c93f44342b9787d66973ff5a, type: 3}
+  bulletPrefab: {fileID: 8194410304760717518, guid: a31e25289f50cc9478ad3322133ca200, type: 3}
   firePoint: {fileID: 8209243779868385050}
   useLaser: 0
   lineRender: {fileID: 0}

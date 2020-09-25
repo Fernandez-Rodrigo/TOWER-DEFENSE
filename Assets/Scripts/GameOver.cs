@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
-    public Text roundText;
+    
 
     public SceneFader sceneFader;
 
@@ -26,11 +26,7 @@ public class GameOver : MonoBehaviour
         
     }
 
-    private void OnEnable()
-    {
-        roundText.text = "Waves survived: " + PlayerStats.rounds.ToString();
-    }
-
+ 
     public void Retry()
     {
         sceneFader.FadeTo(loadLevel);

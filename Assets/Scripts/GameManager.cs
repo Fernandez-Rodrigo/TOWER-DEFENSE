@@ -12,6 +12,11 @@ public class GameManager : MonoBehaviour
 
     public GameObject pauseCanvas;
 
+    public SceneFader sceneFader;
+
+    public GameObject winCanvas;
+
+  
     // Start is called before the first frame update
     void Start()
     {
@@ -66,4 +71,12 @@ public class GameManager : MonoBehaviour
             pauseCanvas.SetActive(false);
         }
     }
+
+    public void WinLevel()
+    {
+        GameisOver = true;
+        winCanvas.SetActive(true);
+
+    }
+
 }

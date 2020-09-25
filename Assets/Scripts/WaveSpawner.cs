@@ -23,11 +23,13 @@ public class WaveSpawner : MonoBehaviour
 
     public Text countDownText;
 
+    public GameManager gameManager;
+
     public Transform spawnPoint;
     // Start is called before the first frame update
     void Start()
     {
-        
+        enemiesAlive = 0;
     }
 
     // Update is called once per frame
@@ -37,6 +39,14 @@ public class WaveSpawner : MonoBehaviour
         {
             return;
         }
+
+
+        if (waveNumber == waves.Length)
+        {
+            gameManager.WinLevel();
+            this.enabled = false;
+        }
+
         {
 
             if (countdown <= 0)
@@ -48,13 +58,17 @@ public class WaveSpawner : MonoBehaviour
             countdown -= Time.deltaTime;
 
         }
+
+       
+
     }
 
 
     IEnumerator SpawnWave()
     {
+        Waves wave = waves[waveNumber];
 
-        Waves wave = waves[waveNumber]; 
+        enemiesAlive = wave.countEnemy;
 
         for (int i = 0; i < wave.countEnemy; i++)
         {
@@ -65,11 +79,7 @@ public class WaveSpawner : MonoBehaviour
         PlayerStats.rounds++;
         waveNumber++;
 
-        if(waveNumber == waves.Length)
-        {
-            Debug.Log("first lvl done");
-            this.enabled = false;
-        }
+     
 
     }
 
@@ -79,7 +89,7 @@ public class WaveSpawner : MonoBehaviour
 
 
         Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
-        enemiesAlive++;
+        
 
 
     }
