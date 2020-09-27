@@ -10,7 +10,7 @@ public class GameOver : MonoBehaviour
 
     public SceneFader sceneFader;
 
-    public string loadLevel = "MainScene";
+    public string loadLevel;
 
     public string loadMenu = "MainMenu";
 

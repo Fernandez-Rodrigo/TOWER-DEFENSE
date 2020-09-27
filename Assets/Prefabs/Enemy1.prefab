@@ -1003,7 +1003,7 @@ GameObject:
   - component: {fileID: 5835176248471403856}
   - component: {fileID: -5911343017339582584}
   m_Layer: 0
-  m_Name: Alien_LOD
+  m_Name: Enemy1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1086,7 +1086,8 @@ MonoBehaviour:
   startSpeed: 10
   speed: 10
   health: 200
-  dropMoney: 50
+  isDead: 0
+  dropMoney: 40
   deathEffect: {fileID: 7527236654731168276, guid: 0e904d71e746cdb4c8d7ce6476846b02, type: 3}
 --- !u!114 &-5911343017339582584
 MonoBehaviour:
