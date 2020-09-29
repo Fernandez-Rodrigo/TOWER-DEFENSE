@@ -178,7 +178,7 @@ MonoBehaviour:
   lineRender: {fileID: -909946921249424360}
   impactLasserEffect: {fileID: 2174650037457373582}
   lightLasser: {fileID: 6460101297781513091}
-  damageOverTime: 50
+  damageOverTime: 100
   slowValue: 1
   range: 15
   fireRate: 1

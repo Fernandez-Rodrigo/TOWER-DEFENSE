@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Nodes : MonoBehaviour
 {
@@ -39,6 +40,7 @@ public class Nodes : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        
        
         if (!buildManager.CanBuid)
             return;
@@ -65,6 +67,12 @@ public class Nodes : MonoBehaviour
 
     private void OnMouseDown()
     {
+
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+
         Vector3 firePosition = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
 
        

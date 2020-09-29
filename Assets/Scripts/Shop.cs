@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Shop : MonoBehaviour
 {
@@ -17,26 +18,35 @@ public class Shop : MonoBehaviour
         buildManager = BuildManager.instance;
     }
 
+  
+ 
+
+
 
     public void SelectBasiqueGun()
     {
-        buildManager.SetTurretToBuild(gunTower);
+        if (EventSystem.current.IsPointerOverGameObject())
+            buildManager.SetTurretToBuild(gunTower);
     }
     public void SelectMachineGun()
     {
-        buildManager.SetTurretToBuild(mgunTower);
+        if (EventSystem.current.IsPointerOverGameObject())
+            buildManager.SetTurretToBuild(mgunTower);
     }
     public void SelectLaserGun()
     {
-        buildManager.SetTurretToBuild(laserTower); 
+        if (EventSystem.current.IsPointerOverGameObject())
+            buildManager.SetTurretToBuild(laserTower);
     }
     public void SelectRocket()
     {
-        buildManager.SetTurretToBuild(rocketTower); 
+        if (EventSystem.current.IsPointerOverGameObject())
+            buildManager.SetTurretToBuild(rocketTower);
     }
     public void SelectFireGun()
     {
-        buildManager.SetTurretToBuild(fireTower);
-    }
+        if (EventSystem.current.IsPointerOverGameObject())
+            buildManager.SetTurretToBuild(fireTower);
 
+    }
 }

@@ -17,7 +17,7 @@ public class WaveSpawner : MonoBehaviour
 
     public float timeBewteenWave = 10f;
 
-    private float countdown = 2f;
+    private float countdown = 10f;
 
     private int waveNumber = 0;
 

@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject winCanvas;
 
+    public int nextLevel;
   
     // Start is called before the first frame update
     void Start()
@@ -76,6 +77,7 @@ public class GameManager : MonoBehaviour
     {
         GameisOver = true;
         winCanvas.SetActive(true);
+        PlayerPrefs.SetInt("levelReached", nextLevel);
 
     }
 

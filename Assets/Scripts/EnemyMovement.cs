@@ -31,9 +31,14 @@ public class EnemyMovement : MonoBehaviour
             transform.LookAt(target);
             return;
         }
-
-        enemy.speed = enemy.startSpeed;
-
+        if (PlayerStats.Lives <= 0)
+        {
+            enemy.speed = 0;
+        }
+        else
+        {
+            enemy.speed = enemy.startSpeed;
+        }
         animatorMob.SetBool("isRunning",isRunning);
     }
 
