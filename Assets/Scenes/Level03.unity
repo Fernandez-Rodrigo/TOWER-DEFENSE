@@ -15846,8 +15846,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c9bf60f8094be9478ddf96fb44b3897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevel: Level03
-  nextLevelIndex: 3
+  nextLevel: Level04
+  nextLevelIndex: 4
   sceneFader: {fileID: 1877920481}
 --- !u!114 &1728471390
 MonoBehaviour:
