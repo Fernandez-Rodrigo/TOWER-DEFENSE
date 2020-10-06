@@ -16,12 +16,15 @@ public class GameManager : MonoBehaviour
 
     public GameObject winCanvas;
 
-    public int nextLevel;
   
     // Start is called before the first frame update
     void Start()
     {
         GameisOver = false;
+        FindObjectOfType<AudioManager>().Stop("MenuSong");
+        FindObjectOfType<AudioManager>().Play("InGameSong");
+        FindObjectOfType<AudioManager>().Stop("GameOverSong");
+        FindObjectOfType<AudioManager>().Stop("WinGameSong");
     }
 
     // Update is called once per frame
@@ -47,7 +50,11 @@ public class GameManager : MonoBehaviour
     {
         GameisOver = true;
         gameOverCanvas.SetActive(true);
-        
+        FindObjectOfType<AudioManager>().Stop("MenuSong");
+        FindObjectOfType<AudioManager>().Stop("InGameSong");
+        FindObjectOfType<AudioManager>().Play("GameOverSong");
+        FindObjectOfType<AudioManager>().Stop("WinGameSong");
+
     }
 
     public void PauseGame()
@@ -77,7 +84,10 @@ public class GameManager : MonoBehaviour
     {
         GameisOver = true;
         winCanvas.SetActive(true);
-        PlayerPrefs.SetInt("levelReached", nextLevel);
+        FindObjectOfType<AudioManager>().Stop("MenuSong");
+        FindObjectOfType<AudioManager>().Stop("InGameSong");
+        FindObjectOfType<AudioManager>().Stop("GameOverSong");
+        FindObjectOfType<AudioManager>().Play("WinGameSong");
 
     }
 

@@ -37,6 +37,11 @@ public class GameOver : MonoBehaviour
     {
         sceneFader.FadeTo(loadMenu);
         Time.timeScale = 1;
+        FindObjectOfType<AudioManager>().Play("MenuSong");
+        FindObjectOfType<AudioManager>().Stop("InGameSong");
+        FindObjectOfType<AudioManager>().Stop("GameOverSong");
+        FindObjectOfType<AudioManager>().Stop("WinSong");
+
     }
 
 

@@ -10,10 +10,14 @@ public class CompleteLevel : MonoBehaviour
 
     public SceneFader sceneFader;
 
+  
+
+   
+
     // Start is called before the first frame update
     void Start()
     {
-        
+      
     }
 
     // Update is called once per frame
@@ -24,7 +28,17 @@ public class CompleteLevel : MonoBehaviour
 
     public void Continue()
     {
-        PlayerPrefs.SetInt(nextLevel, nextLevelIndex);
         sceneFader.FadeTo(nextLevel);
+
+        if (PlayerPrefs.GetInt("levelReached") > nextLevelIndex)
+        {
+            return;
+        }
+        else
+        {
+            PlayerPrefs.SetInt("levelReached", nextLevelIndex);
+          
+        }
+       
     }
 }

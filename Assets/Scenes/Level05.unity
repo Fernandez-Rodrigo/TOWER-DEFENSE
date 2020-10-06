@@ -13891,7 +13891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c9bf60f8094be9478ddf96fb44b3897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevel: Level06
+  nextLevel: CreditScene
   nextLevelIndex: 6
   sceneFader: {fileID: 233685864}
 --- !u!95 &1370726298

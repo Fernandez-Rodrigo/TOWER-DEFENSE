@@ -41,7 +41,7 @@ public class WaveSpawner : MonoBehaviour
         }
 
 
-        if (waveNumber == waves.Length)
+        if (waveNumber == waves.Length && PlayerStats.Lives > 0)
         {
             gameManager.WinLevel();
             this.enabled = false;

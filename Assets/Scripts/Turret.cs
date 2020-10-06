@@ -27,6 +27,8 @@ public class Turret : MonoBehaviour
 
     public float slowValue = 0.7f;
 
+    public AudioSource lasserAndFire;
+
     [Header("Attributes")]
     public float range = 15f;
     public float fireRate = 1f;
@@ -82,6 +84,7 @@ public class Turret : MonoBehaviour
                     lineRender.enabled = false;
                     impactLasserEffect.Stop();
                     lightLasser.enabled = false;
+                    lasserAndFire.Stop();
                 }
             }
 
@@ -129,6 +132,7 @@ public class Turret : MonoBehaviour
             lineRender.enabled = true;
             impactLasserEffect.Play();
             lightLasser.enabled = true;
+            lasserAndFire.Play();
         }
 
         lineRender.SetPosition(0, firePoint.position);
