@@ -692,7 +692,7 @@ MonoBehaviour:
     GAME
 
 
-    ESCAPE: QUIT GAME'
+    MOUSE WHEEL: ZOOM UP OR DOWN'
 --- !u!222 &1694423080
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -846,7 +846,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4784354380555082900, guid: 04c6ecddc5eb1284d86757bc2508b52e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4784354380555082907, guid: 04c6ecddc5eb1284d86757bc2508b52e, type: 3}
       propertyPath: m_LocalPosition.x
