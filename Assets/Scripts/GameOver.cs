@@ -40,8 +40,7 @@ public class GameOver : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("MenuSong");
         FindObjectOfType<AudioManager>().Stop("InGameSong");
         FindObjectOfType<AudioManager>().Stop("GameOverSong");
-        FindObjectOfType<AudioManager>().Stop("WinSong");
-
+        FindObjectOfType<AudioManager>().Stop("WinGameSong");
     }
 
 

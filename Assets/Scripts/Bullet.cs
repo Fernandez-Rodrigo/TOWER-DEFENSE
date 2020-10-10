@@ -51,8 +51,9 @@ public class Bullet : MonoBehaviour
     {
         GameObject effectHit = Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(effectHit, 1f);
+        this.GetComponent<Bullet>().enabled = false;
 
-        Destroy(gameObject);
+        Destroy(gameObject, 0.5f);
         return;
     }
 
